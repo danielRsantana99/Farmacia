@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pesquisa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -33,8 +34,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/id_lista"
-        android:layout_width="400dp"
-        android:layout_height="566dp"
+        android:layout_width="419dp"
+        android:layout_height="554dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"

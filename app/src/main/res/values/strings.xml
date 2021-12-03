@@ -3,4 +3,8 @@
     <string name="texto_pesquisa">pesquisar...</string>
     <string name="botao_cadastro">CADASTRAR REMEDIO</string>
     <string name="texto_dica">pesquise o nome do remedio ou o sintoma</string>
+    <string name="mensagem_conexao">"conexão criada com sucesso"</string>
+    <string name="messagem_ok">ok</string>
+    <string name="messagem_erro">erro</string>
+
 </resources>
