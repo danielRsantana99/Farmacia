@@ -22,29 +22,29 @@ public class MainActivity extends AppCompatActivity {
 
     private SQLiteDatabase conexão;
     private dadosOpenHelper dadosOpenHelper;
-    private remedioAdapter remedioAdapter;
-    private remedioRepositorio remedioRepositorio;
+    //private remedioAdapter remedioAdapter;
+  //  private remedioRepositorio remedioRepositorio;
     private ConstraintLayout pesquisa;
-    private RecyclerView lstdados;
+   // private RecyclerView lstdados;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lstdados = (RecyclerView)findViewById(R.id.id_lista);
+        //lstdados = (RecyclerView)findViewById(R.id.id_lista);
         pesquisa = (ConstraintLayout)findViewById(R.id.pesquisa);
 
-        lstdados.setHasFixedSize(true);
+        //lstdados.setHasFixedSize(true);
         criarConexao();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        lstdados.setLayoutManager(linearLayoutManager);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //lstdados.setLayoutManager(linearLayoutManager);
 
-        remedioRepositorio = new remedioRepositorio(conexão);
-        List<remedio> dados = remedioRepositorio.buscarTodos();
+       // remedioRepositorio = new remedioRepositorio(conexão);
+       // List<remedio> dados = remedioRepositorio.buscarTodos();
 
-        remedioAdapter = new remedioAdapter(dados);
-        lstdados.setAdapter(remedioAdapter);
+       // remedioAdapter = new remedioAdapter(dados);
+       // lstdados.setAdapter(remedioAdapter);
     }
 
     private void criarConexao(){
