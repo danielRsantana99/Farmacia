@@ -49,8 +49,8 @@ public class AlunoDAO {
         values.put("nome",aluno.getNome());
         values.put("cpf",aluno.getCpf());
         values.put("telefone",aluno.getTelefone());
-        banco.update("alunos",values,
-                "id= ?",
+        banco.update("aluno",values,
+                "id = ?",
                 new String[]{aluno.getId().toString()});
     }
 }

@@ -37,18 +37,23 @@ public class CadastrarAlunoActivity extends AppCompatActivity {
 
     public void Salvar(View view) {
         if (aluno == null) {
-            Aluno a = new Aluno();
+            aluno = new Aluno();
             aluno.setNome(nome.getText().toString());
             aluno.setCpf(cpf.getText().toString());
             aluno.setTelefone(telefone.getText().toString());
             long id = dao.inserir(aluno);
-            Toast.makeText(this, "Aluno inserido com id: " + id, Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Aluno inserido ", Toast.LENGTH_SHORT).show();
+            Intent it = new Intent(this,ListarAlunosActivity.class);
+            startActivity(it);
         }else{
             aluno.setNome(nome.getText().toString());
             aluno.setCpf(cpf.getText().toString());
             aluno.setTelefone(telefone.getText().toString());
             dao.atualizar(aluno);
-            Toast.makeText(this, "Alteração concluída", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Alteração concluída", Toast.LENGTH_SHORT).show();
+            Intent it = new Intent(this,ListarAlunosActivity.class);
+            startActivity(it);
+
         }
     }
 }
