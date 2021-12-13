@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -13,29 +12,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarAlunosActivity extends AppCompatActivity {
+public class ListarRemediosActivity extends AppCompatActivity {
     private ListView listView;
-    private AlunoDAO dao;
-    private List<Aluno> alunos;
-    private List<Aluno> alunosFiltrados = new ArrayList<>();
+    private RemedioDAO dao;
+    private List<Remedio> remedios;
+    private List<Remedio> remediosFiltrados = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_alunos);
+        setContentView(R.layout.activity_listar_remedios);
 
-        listView = findViewById(R.id.lista_alunos);
-        dao = new AlunoDAO(this);
-        alunos = dao.obterTodos();
-        alunosFiltrados.addAll(alunos);
-        //ArrayAdapter<Aluno> adaptador = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1,alunosFiltrados);
-        AlunoAdapter adaptador = new AlunoAdapter(alunosFiltrados, this);
+        listView = findViewById(R.id.lista_remedios);
+        dao = new RemedioDAO(this);
+        remedios = dao.obterTodos();
+        remediosFiltrados.addAll(remedios);
+        RemedioAdapter adaptador = new RemedioAdapter(remediosFiltrados, this);
         listView.setAdapter(adaptador);
         registerForContextMenu(listView);
     }
@@ -53,7 +50,7 @@ public class ListarAlunosActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange (String s) {
-                procuraAluno(s);
+                procuraRemedio(s);
                 return false;
             }
         });
@@ -68,11 +65,11 @@ public class ListarAlunosActivity extends AppCompatActivity {
 
     }
 
-    public void procuraAluno(String nome){
-        alunosFiltrados.clear();
-        for(Aluno a : alunos){
+    public void procuraRemedio(String nome){
+        remediosFiltrados.clear();
+        for(Remedio a : remedios){
             if(a.getNome().toLowerCase().contains(nome.toLowerCase())){
-                alunosFiltrados.add(a);
+                remediosFiltrados.add(a);
             }
 
         }
@@ -82,17 +79,17 @@ public class ListarAlunosActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo menuInfo =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-        final Aluno alunoExcluir = alunosFiltrados.get(menuInfo.position);
+        final Remedio remedioExcluir = remediosFiltrados.get(menuInfo.position);
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Atenção")
-                .setMessage("Realmente deseja excluir o aluno?")
+                .setMessage("Realmente deseja excluir o remedio?")
                 .setNegativeButton("NÃO",null)
                 .setPositiveButton("SIM", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                alunosFiltrados.remove(alunoExcluir);
-                alunos.remove(alunoExcluir);
-                dao.excluir(alunoExcluir);
+                remediosFiltrados.remove(remedioExcluir);
+                remedios.remove(remedioExcluir);
+                dao.excluir(remedioExcluir);
                 listView.invalidateViews();
             }
         }).create();
@@ -101,25 +98,25 @@ public class ListarAlunosActivity extends AppCompatActivity {
     }
 
     public void cadastrar(MenuItem menuItem){
-        Intent it = new Intent(this,CadastrarAlunoActivity.class);
+        Intent it = new Intent(this, CadastrarRemedioActivity.class);
         startActivity(it);
     }
     public void atualizar(MenuItem item){
         AdapterView.AdapterContextMenuInfo menuInfo =
             (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-        final Aluno alunoAtualizar = alunosFiltrados.get(menuInfo.position);
-        Intent it = new Intent(this,CadastrarAlunoActivity.class);
-        it.putExtra("aluno", alunoAtualizar);
+        final Remedio remedioAtualizar = remediosFiltrados.get(menuInfo.position);
+        Intent it = new Intent(this, CadastrarRemedioActivity.class);
+        it.putExtra("remedio", remedioAtualizar);
         startActivity(it);
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        alunos = dao.obterTodos();
-        alunosFiltrados.clear();
-        alunosFiltrados.addAll(alunos);
+        remedios = dao.obterTodos();
+        remediosFiltrados.clear();
+        remediosFiltrados.addAll(remedios);
         listView.invalidateViews();
     }
 }

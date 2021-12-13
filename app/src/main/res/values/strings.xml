@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Farmacia</string>
     <string name="txt_nome">Nome</string>
-    <string name="txt_cpf">Cpf</string>
-    <string name="txt_telefone">Telefone</string>
-    <string name="btn_salvar">Salvar</string>
+    <string name="txt_sintoma">Usado em casos de:</string>
+    <string name="txt_preco">Preço:</string>
+    <string name="btn_salvar">Cadastrar</string>
 
     <string name="menu_cadastrar">Cadastrar</string>
     <string name="menu_pesquisar">Consultar</string>

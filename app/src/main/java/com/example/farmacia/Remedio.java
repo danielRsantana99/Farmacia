@@ -2,11 +2,11 @@ package com.example.farmacia;
 
 import java.io.Serializable;
 
-public class Aluno implements Serializable {
+public class Remedio implements Serializable {
     private Integer id;
     private String nome;
-    private String cpf;
-    private String telefone;
+    private String sintoma;
+    private Double preco;
 
     public Integer getId() {
         return id;
@@ -16,12 +16,12 @@ public class Aluno implements Serializable {
         return nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getSintoma() {
+        return sintoma;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public Double getPreco() {
+        return preco;
     }
 
     public void setId(Integer id) {
@@ -32,12 +32,12 @@ public class Aluno implements Serializable {
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setSintoma(String sintoma) {
+        this.sintoma = sintoma;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     @Override
