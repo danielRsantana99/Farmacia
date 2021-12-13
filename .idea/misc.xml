@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asgard/AndroidStudioProjects/Farmacia/app/src/main/res/layout/activity_cadastro_aluno.xml" value="0.2" />
         <entry key="..\:/Users/Asgard/AndroidStudioProjects/Farmacia/app/src/main/res/layout/activity_listar_alunos.xml" value="0.25" />
         <entry key="..\:/Users/Asgard/AndroidStudioProjects/Farmacia/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Asgard/AndroidStudioProjects/Farmacia/app/src/main/res/menu/menu_principal.xml" value="0.1" />
