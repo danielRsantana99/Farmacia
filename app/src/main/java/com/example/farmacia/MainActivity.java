@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import com.example.farmacia.database.dadosOpenHelper;
@@ -20,10 +19,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SQLiteDatabase conexão;
-    private dadosOpenHelper dadosOpenHelper;
+    private SQLiteDatabase conexao;
+    private dadosOpenHelper dadosopenhelper;
     private remedioAdapter remedioAdapter;
-    private remedioRepositorio remedioRepositorio;
+    private remedioRepositorio remediorepositorio;
     private ConstraintLayout pesquisa;
     private RecyclerView lstdados;
     @Override
@@ -31,28 +30,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lstdados = (RecyclerView)findViewById(R.id.id_lista);
-        pesquisa = (ConstraintLayout)findViewById(R.id.pesquisa);
+        lstdados = findViewById(R.id.id_lista);
+        pesquisa = findViewById(R.id.pesquisa);
 
-        //lstdados.setHasFixedSize(true);
+        lstdados.setHasFixedSize(true);
         criarConexao();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         lstdados.setLayoutManager(linearLayoutManager);
 
-        remedioRepositorio = new remedioRepositorio(conexão);
-        List<remedio> dados = remedioRepositorio.buscarTodos();
+        remediorepositorio = new remedioRepositorio(conexao);
+        //List<remedio> dados = remediorepositorio.buscarTodos();
 
-        remedioAdapter = new remedioAdapter(dados);
-        lstdados.setAdapter(remedioAdapter);
+        //remedioAdapter = new remedioAdapter(dados);
+        //lstdados.setAdapter(remedioAdapter);
     }
 
     private void criarConexao(){
         try {
 
-            dadosOpenHelper = new dadosOpenHelper(this);
+            dadosopenhelper = new dadosOpenHelper(this);
 
-            conexão = dadosOpenHelper.getWritableDatabase();
+            conexao = dadosopenhelper.getWritableDatabase();
 
             Snackbar.make(pesquisa,R.string.mensagem_conexao, Snackbar.LENGTH_SHORT).setAction(R.string.messagem_ok,null).show();
         }catch (SQLException ex){

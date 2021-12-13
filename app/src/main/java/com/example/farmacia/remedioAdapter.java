@@ -37,8 +37,11 @@ public class remedioAdapter extends RecyclerView.Adapter<remedioAdapter.ViewHold
         if((dados != null) &&(dados.size() > 0)){
             remedio remedio = dados.get(position);
 
+
             holder.txtnome.setText(remedio.nome);
             holder.txtsintoma.setText(remedio.sintomas);
+            holder.txtefeitos.setText(remedio.efeitos);
+
         }
 
 
@@ -53,11 +56,15 @@ public class remedioAdapter extends RecyclerView.Adapter<remedioAdapter.ViewHold
 
         public TextView txtnome;
         public TextView txtsintoma;
+        public TextView txtefeitos;
+
         private  ViewHolderRemedio(View itemView) {
             super(itemView);
 
-            txtnome = (TextView) itemView.findViewById(R.id.txtnome);
-            txtsintoma = (TextView) itemView.findViewById(R.id.txtsintomas);
+            txtnome =  itemView.findViewById(R.id.txtnome);
+            txtsintoma = itemView.findViewById(R.id.txtsintomas);
+            txtefeitos = itemView.findViewById(R.id.txtefeito);
+
         }
     }
 

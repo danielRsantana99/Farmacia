@@ -55,7 +55,7 @@ public class remedioRepositorio {
         List<remedio> remedios = new ArrayList<remedio>();
 
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT id,nome,sintomas,efeitos,preco");
+        sql.append("SELECT nome,sintomas");
         sql.append("FROM remedio");
 
         Cursor resultado = conexao.rawQuery(sql.toString(),null);
