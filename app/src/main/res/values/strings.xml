@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Farmacia</string>
+    <string name="app_name">Farmácia</string>
     <string name="txt_nome">Nome</string>
     <string name="txt_sintoma">Usado em casos de:</string>
     <string name="txt_preco">PREÇO:</string>
@@ -7,5 +7,6 @@
 
     <string name="menu_cadastrar">Cadastrar</string>
     <string name="menu_pesquisar">Consultar</string>
+    <string name="nmb_preco">Preço</string>
 
 </resources>
